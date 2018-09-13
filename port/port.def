@@ -8,12 +8,12 @@ const PinInfo const _vhalpinmap[] STORED = {
 
     /* EXT1 */
 
-    /* D0   */ MAKE_PIN(PA, 17, HAS_EXT),           /* AD0      */ 
-    /* D1   */ MAKE_PIN(PA, 18, HAS_EXT),           /* AD1      */ 
+    /* D0   */ MAKE_PIN(PA, 17, HAS_EXT | HAS_ADC), /* AD0      */ 
+    /* D1   */ MAKE_PIN(PA, 18, HAS_EXT | HAS_ADC), /* AD1      */ 
     /* D2   */ MAKE_PIN(PA, 26, HAS_EXT),           /*  */ 
     /* D3   */ MAKE_PIN(PA, 25, HAS_EXT),           /*  */ 
-    /* D4   */ MAKE_PIN(PA,  0, HAS_EXT),           /* PWM TIOA0 */ 
-    /* D5   */ MAKE_PIN(PA, 23, HAS_EXT),           /* PWM TIOA1 */ 
+    /* D4   */ MAKE_PIN(PA,  0, HAS_EXT | HAS_ATM), /* PWM TIOA0 */ 
+    /* D5   */ MAKE_PIN(PA, 23, HAS_EXT | HAS_ATM), /* PWM TIOA1 */ 
     /* D6   */ MAKE_PIN(PA, 24, HAS_EXT),           /*  */ 
     /* D7   */ MAKE_PIN(PA, 29, HAS_EXT),           /*  */ 
     /* D8   */ MAKE_PIN(PB, 10, HAS_EXT),           /* TWD6      */ 
@@ -29,13 +29,13 @@ const PinInfo const _vhalpinmap[] STORED = {
 
     /* EXT3 */
 
-    /* D16  */ MAKE_PIN(PA, 19, HAS_EXT),           /* AD2      */ 
-    /* D17  */ MAKE_PIN(PA, 20, HAS_EXT),           /* AD3      */ 
+    /* D16  */ MAKE_PIN(PA, 19, HAS_EXT | HAS_ADC), /* AD2      */ 
+    /* D17  */ MAKE_PIN(PA, 20, HAS_EXT | HAS_ADC), /* AD3      */ 
     /* D18  */ MAKE_PIN(PA, 30, HAS_EXT),           /*  */ 
-    /* D29  */ MAKE_PIN(PB, 15, HAS_EXT),           /*  */ 
-    /* D20  */ MAKE_PIN(PA,  1, HAS_EXT),           /*  */ 
-    /* D21  */ MAKE_PIN(PB, 13, HAS_EXT),           /* PWM       */ 
-    /* D22  */ MAKE_PIN(PB,  3, HAS_EXT),           /* PWM       */ 
+    /* D19  */ MAKE_PIN(PB, 15, HAS_EXT),           /*  */ 
+    /* D20  */ MAKE_PIN(PA,  1, HAS_EXT | HAS_ATM), /* PWM TIOB0 */ 
+    /* D21  */ MAKE_PIN(PB, 13, HAS_EXT),           /*           */ 
+    /* D22  */ MAKE_PIN(PB,  3, HAS_EXT),           /*           */ 
     /* D23  */ MAKE_PIN(PA, 15, HAS_EXT),           /*  */ 
     /* D24  */ MAKE_PIN(PB,  8, HAS_EXT),           /* TWD4      */ 
     /* D25  */ MAKE_PIN(PB,  9, HAS_EXT),           /* TWCK4     */ 
@@ -68,6 +68,11 @@ const PinInfo const _vhalpinmap[] STORED = {
 
 
 const PinClass const _analogclass[] STORED = {
+    /* pin, ad, mux fn (A,B,C,D -> 0,1,2,3) */
+    /* A0  */ MAKE_PIN_CLASS(0 , 0, 2, 0),
+    /* A1  */ MAKE_PIN_CLASS(1 , 1, 2, 0),
+    /* A2  */ MAKE_PIN_CLASS(16, 2, 2, 0),
+    /* A3  */ MAKE_PIN_CLASS(17, 3, 2, 0),
 };
 
 const PinClass const _spiclass[] STORED = {
@@ -88,6 +93,10 @@ const PinClass const _i2cclass[] STORED = {
 };
 
 const PinClass const _pwmclass[] STORED = {
+    /* pin_num, tc, mux fn (A,B,C,D -> 0,1,2,3), channel*2 + line (A0,A1,B0,B1 -> 0,1,2,3) */
+    /* D4 */ MAKE_PIN_CLASS(4, 0, 1, 0),
+    /* D5 */ MAKE_PIN_CLASS(5, 0, 1, 1),
+    /* D20*/ MAKE_PIN_CLASS(20,0, 1, 1), 
 };
 
 const PinClass const _icuclass[] STORED = {
