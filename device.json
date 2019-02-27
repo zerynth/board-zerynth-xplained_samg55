@@ -57,6 +57,15 @@
     "jtag_chipid_prefix": "0x004",
     "bytecode_offset": "0x420000",
     "vmstore_offset": "0x41f000",
+    "preferred_uplink_with_jtag":{
+       "probe":"atmel_edbg"
+    },
+    "preferred_register_with_jtag":{
+       "probe":"atmel_edbg"
+    },
+    "preferred_burn_with_jtag":{
+       "probe":"atmel_edbg"
+    },
     "uplink_reset": "reset",
     "reset_time": 2000,
     "vm_mini_chunk": 64,
