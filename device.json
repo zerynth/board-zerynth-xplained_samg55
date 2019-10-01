@@ -17,7 +17,7 @@
     "architecture": "cortex-m4",
     "gccopts": {
         "arch": [
-            "conrtex-m0plus",
+            "-mcpu=cortex-m4",
             "-mthumb",
             "-mfpu=fpv4-sp-d16",
             "-mfloat-abi=softfp"
@@ -57,14 +57,14 @@
     "jtag_chipid_prefix": "0x004",
     "bytecode_offset": "0x420000",
     "vmstore_offset": "0x41f000",
-    "preferred_uplink_with_jtag":{
-       "probe":"atmel_edbg"
+    "preferred_uplink_with_jtag": {
+        "probe": "atmel_edbg"
     },
-    "preferred_register_with_jtag":{
-       "probe":"atmel_edbg"
+    "preferred_register_with_jtag": {
+        "probe": "atmel_edbg"
     },
-    "preferred_burn_with_jtag":{
-       "probe":"atmel_edbg"
+    "preferred_burn_with_jtag": {
+        "probe": "atmel_edbg"
     },
     "uplink_reset": "reset",
     "reset_time": 2000,
